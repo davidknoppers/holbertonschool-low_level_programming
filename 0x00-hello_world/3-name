@@ -1,2 +1,2 @@
 #!/bin/bash
-gcc -o $CFILE cisfun.exe
+gcc -o cisfun.exe $CISFUN
