@@ -8,19 +8,11 @@ int main(void)
 {
 int n;
 int i;
-int temp;
 for (n = 0 ; n <= 8; n++)
 {
-if (n == 0)
+for (i = 1 ; i <= 9; i++)
 {
-temp = 1;
-}
-else
-{
-temp = n + 1;
-}
-for (i = temp ; i <= 9; i++)
-{
+  if (n <i){
 putchar('0' + n);
 putchar('0' + i);
 if (n != 8 || i != 9)
@@ -30,6 +22,7 @@ putchar(' ');
 }
 }
 }
+ }
 putchar('\n');
 return (0);
 }
