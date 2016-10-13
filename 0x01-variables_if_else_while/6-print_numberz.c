@@ -1,6 +1,6 @@
 #include <stdio.h>
 /**
- * main - prints the digits 0 through 9 using putchar
+ * main - prints the digits 0 through 9
  * Return: 0 through 9 followed by a newline
  */
 
