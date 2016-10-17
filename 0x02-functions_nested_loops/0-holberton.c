@@ -1,15 +1,10 @@
-#include <unistd.h>
+#include "holberton.h"
 /**
  * main - prints Holberton
  * Return: "Holberton," followed by a newline
  */
 int main(void)
 {
-	int _putchar(char c)
-	{
-		return (write(1, &c, 1));
-
-	}
 	_putchar('H');
 	_putchar('o');
 	_putchar('l');
