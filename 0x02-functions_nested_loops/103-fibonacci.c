@@ -19,7 +19,7 @@ int main(void)
 	while (start < counter)
 	{
 		next = a + b;
-		if (next %2 == 0 && next < 4000000)
+		if (next % 2 == 0 && next < 4000000)
 		{
 			sum += next;
 		}
