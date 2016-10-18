@@ -2,6 +2,7 @@
 
 /**
  * print_last_digit - prints the last digit of any int.
+ * @n: an integer input
  *
  * Return: last digit of int
  */
@@ -13,6 +14,6 @@ int print_last_digit(int n)
 		n *= -1;
 	}
 	n %= 10;
-	_putchar(n+48);
+	_putchar(n + 48);
 	return (n);
 }
