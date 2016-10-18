@@ -13,7 +13,11 @@ void times_table(void)
 		for (second = 0; second <= 9; second++)
 		{
 			product = first * second;
-			if (product < 10)
+			if (second == 0)
+			{ 
+				_putchar(product + 48);
+			}
+			else if (product < 10)
 			{
 				_putchar(' ');
 				_putchar(product + 48);
