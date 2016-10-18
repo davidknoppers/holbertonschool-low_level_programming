@@ -11,9 +11,9 @@ int main(void)
 	int counter, start;
 
 	start = 2;
-	counter = 50;
+	counter = 49;
 	a = 1;
-	b = 1;
+	b = 2;
 	printf("%lu, %lu, ", a, b);
 	while (start < counter)
 	{
