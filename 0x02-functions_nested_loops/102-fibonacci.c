@@ -7,21 +7,22 @@
 
 int main(void)
 {
-	unsigned long next, a, b;
+	long next, a, b;
 	int counter, start;
 
 	start = 2;
 	counter = 49;
 	a = 1;
 	b = 2;
-	printf("%lu, %lu, ", a, b);
+	printf("%ld, %ld, ", a, b);
 	while (start < counter)
 	{
 		next = a + b;
-		printf("%lu, ", next);
+		printf("%ld, ", next);
 		a = b;
 		b = next;
 		start++;
 	}
-	printf("%lu\n", a + b);
+	printf("%ld\n", a + b);
+	return (0);
 }
