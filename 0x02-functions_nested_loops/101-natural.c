@@ -1,4 +1,3 @@
-#include "holberton.h"
 #include <stdio.h>
 
 /**
@@ -12,13 +11,13 @@ int main(void)
 
 	sum = 0;
 	start = 3;
-	while (start < 1023)
+	while (start < 1024)
 	{
 		sum += start;
 		start += 3;
 	}
 	start = 5;
-	while (start < 1020)
+	while (start < 1024)
 	{
 		sum += start;
 		start += 5;
