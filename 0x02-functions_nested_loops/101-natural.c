@@ -1,7 +1,7 @@
 #include "holberton.h"
 #include <stdio.h>
 
-int main(void)
+unsigned int main(void)
 {
 	unsigned int sum, start;
 
