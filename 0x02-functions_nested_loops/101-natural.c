@@ -10,18 +10,11 @@ int main(void)
 	long sum, start;
 
 	sum = 0;
-	start = 3;
-	while (start < 1024)
-	{
-		sum += start;
-		start += 3;
-	}
-	start = 5;
-	while (start < 1024)
-	{
-		sum += start;
-		start += 5;
-	}
+	for (start = 3; start < 1023; start++)
+		if (start % 3 == 0 || start % 5 == 0)
+		{
+			sum += start;
+		}
 	printf("%ld\n", sum);
 	return (0);
 }
