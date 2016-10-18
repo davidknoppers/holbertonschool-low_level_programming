@@ -7,9 +7,9 @@
  * Return: void, after printing sum
  */
 
-unsigned int main(void)
+int main(void)
 {
-	unsigned int sum, start;
+	long sum, start;
 
 	sum = 0;
 	start = 3;
@@ -24,5 +24,6 @@ unsigned int main(void)
 		sum += start;
 		start += 5;
 	}
-	printf("%u\n", sum);
+	printf("%ld\n", sum);
+	return (0);
 }
