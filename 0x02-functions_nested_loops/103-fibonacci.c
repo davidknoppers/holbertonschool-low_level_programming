@@ -12,7 +12,7 @@ int main(void)
 	int counter, start;
 
 	start = 2;
-	sum = 2;
+	sum = 3;
 	counter = 35;
 	a = 1;
 	b = 2;
