@@ -1,9 +1,7 @@
-#include "holberton.h"
 #include <stdio.h>
+
 /**
  * main - calculates and returns sum
- *
- *
  * Return: void, after printing sum
  */
 
