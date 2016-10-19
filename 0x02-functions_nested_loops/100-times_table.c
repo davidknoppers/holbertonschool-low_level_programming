@@ -1,7 +1,9 @@
 #include "holberton.h"
 /**
- * print_times_table - prints a dynamically sized times table
- * @n: size of the table
+ * format_number - prints number with appropriate syntax
+ * 
+ * @p: first digit input to format_number
+ * @c: second digit input; checks for end of line 
  * Return: none
  */
 
@@ -31,6 +33,12 @@ void format_number(int p, int c)
 		_putchar(p % 10 + 48);
 	}
 }
+/**
+ * print_times_table - uses format_number to print a dynamically sized table
+ * 
+ * @n: specifies the size of the table
+ * Return: none
+ */
 void print_times_table(int n)
 {
 	int product, first, second;
@@ -55,7 +63,6 @@ void print_times_table(int n)
 				_putchar(',');
 				_putchar(' ');
 			}
-		   
 		}
 	}
 }
