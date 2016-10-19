@@ -31,7 +31,7 @@ int main(void)
 	back_x = x % halver;
 	front_y = y / halver;
 	back_y = y % halver;
-	while (counter < 97)
+	while (counter < 96)
 	{
 		add_fronts = front_x + front_y;
 		add_backs = back_x + back_y;
@@ -40,7 +40,7 @@ int main(void)
 			add_fronts++;
 			add_backs %= halver;
 		}
-		if (counter < 96)
+		if (counter < 95)
 		{
 			printf("%ld%ld, ", add_fronts, add_backs);
 			front_x = front_y;
