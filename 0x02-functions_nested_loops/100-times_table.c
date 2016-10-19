@@ -1,9 +1,8 @@
 #include "holberton.h"
 /**
  * format_number - prints number with appropriate syntax
- * 
  * @p: first digit input to format_number
- * @c: second digit input; checks for end of line 
+ * @c: second digit input; checks for end of line
  * Return: none
  */
 
@@ -24,7 +23,6 @@ void format_number(int p, int c)
 		_putchar(' ');
 		_putchar(p / 10 + 48);
 		_putchar(p % 10 + 48);
-
 	}
 	else
 	{
@@ -35,7 +33,7 @@ void format_number(int p, int c)
 }
 /**
  * print_times_table - uses format_number to print a dynamically sized table
- * 
+ *
  * @n: specifies the size of the table
  * Return: none
  */
