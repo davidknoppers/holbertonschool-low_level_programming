@@ -1,11 +1,36 @@
 #include "holberton.h"
-#include <stdio.h>
 /**
  * print_times_table - prints a dynamically sized times table
  * @n: size of the table
  * Return: none
  */
 
+void format_number(int p, int c)
+{
+	if (c == 0)
+	{
+		_putchar(p + 48);
+	}
+	else if (p < 10)
+	{
+		_putchar(' ');
+		_putchar(' ');
+		_putchar(p + 48);
+	}
+	else if (p < 100)
+	{
+		_putchar(' ');
+		_putchar(p / 10 + 48);
+		_putchar(p % 10 + 48);
+
+	}
+	else
+	{
+		_putchar(p / 100 + 48);
+		_putchar((p - 100) / 10 + 48);
+		_putchar(p % 10 + 48);
+	}
+}
 void print_times_table(int n)
 {
 	int product, first, second;
@@ -20,30 +45,17 @@ void print_times_table(int n)
 		for (second = 0; second <= n; second++)
 		{
 			product = first * second;
-			if (second == 0)
-			{
-				printf("%u", product);
-			}
-			else if (product < 10)
-			{
-				printf("  %u", product);
-			}
-			else if (product < 100)
-			{
-				printf(" %u", product);
-			}
-			else
-			{
-				printf("%u", product);
-			}
+			format_number(product, second);
 			if (second == n)
 			{
-				printf("\n");
+				_putchar('\n');
 			}
 			else
 			{
-				printf(", ");
+				_putchar(',');
+				_putchar(' ');
 			}
+		   
 		}
 	}
 }
