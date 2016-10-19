@@ -16,9 +16,7 @@ int main(void)
 	x = 1;
 	y = 2;
 	counter = 0;
-
 	printf("1, 2, ");
-
 	while (counter < 89)
 	{
 		next = x + y;
@@ -49,7 +47,9 @@ int main(void)
 			back_y = add_backs;
 		}
 		else
+		{
 			printf("%ld%ld\n", add_fronts, add_backs);
+		}
 		counter++;
 	}
 	return (0);
