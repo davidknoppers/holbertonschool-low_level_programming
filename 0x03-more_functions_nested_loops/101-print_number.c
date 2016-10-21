@@ -1,12 +1,12 @@
 #include "holberton.h"
 
 /**
- * print_number_2 - prints a number using only _putchar
+ * print_number - prints a number using only _putchar
  * @n: integer to be printed
  * Return: none
  */
 
-void print_number_2(int n)
+void print_number(int n)
 {
 	if (n == 0)
 	{
@@ -18,12 +18,12 @@ void print_number_2(int n)
 		n *= -1;
 	}
 	else
-	  {
-	    _putchar('-');
-	  }
-	if ((n / 10)*-1 != 0)
 	{
-	  print_number_2((n / 10)*-1);
+		_putchar('-');
 	}
-	_putchar((n % 10)* -1 + '0');
+	if ((n / 10) * -1 != 0)
+	{
+		print_number((n / 10) * -1);
+	}
+	_putchar((n % 10) * -1 + '0');
 }
