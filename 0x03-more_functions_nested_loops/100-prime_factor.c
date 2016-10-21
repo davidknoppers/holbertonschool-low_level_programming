@@ -6,7 +6,7 @@ int main(void)
 	n = 612852475143;
 	best = 0;
 	start = 3;
-	while ((start * start) <= n);
+	while ((start * start) <= n)
 	{
 		if (n % start == 0)
 		{
