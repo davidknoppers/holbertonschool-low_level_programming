@@ -30,9 +30,5 @@ int _atoi(char *s)
 	{
 		result *= -1;
 	}
-	if (result == 0)
-	{
-		return (0);
-	}
 	return (result);
 }
