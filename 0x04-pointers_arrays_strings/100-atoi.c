@@ -17,7 +17,7 @@ int _atoi(char *s)
 		{
 			sign *= -1;
 		}
-		if (*(s + n) <= '9' && *(s + n) >= '0')
+		if (*(s + n) >= '0' && *(s + n) <= '0')
 		{
 			result = 10 * result + (*(s + n) - '0');
 		}
@@ -29,6 +29,10 @@ int _atoi(char *s)
 	if (sign < 0)
 	{
 		result *= -1;
+	}
+	if (result == 0)
+	{
+		return (0);
 	}
 	return (result);
 }
