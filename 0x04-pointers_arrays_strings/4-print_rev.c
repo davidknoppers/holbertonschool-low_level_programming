@@ -1,8 +1,8 @@
 #include "holberton.h"
 /**
- * _strlen - returns the length of a given string
+ * _strlen - returns the length of a string
  *
- * @s: a pointer to a string
+ * @s: the given string
  * Return: none
  */
 
@@ -17,20 +17,19 @@ int _strlen(char *s)
 	return (n);
 }
 /**
- * _puts - prints a given string with only _putchar
+ * print_rev - reverses an input string
  *
- * @str: a pointer to an input string
+ * @s: the string to be reversed
  * Return: none
  */
-void _puts(char *str)
+void print_rev(char *s)
 {
 	int n, end;
 
-	end = _strlen(str);
-
-	for (n = end - 1; n >= 0 ; n--)
+	end = _strlen(s);
+	for (n = end - 1; n >= 0; n--)
 	{
-		_putchar(*(str + n));
+		_putchar(*(s + n));
 	}
 	_putchar('\n');
 }
