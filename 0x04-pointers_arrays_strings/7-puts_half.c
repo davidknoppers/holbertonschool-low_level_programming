@@ -14,6 +14,12 @@ int _strlen(char *s)
 		n++;
 	return (n);
 }
+/**
+ * puts_half - prints the second half of a string
+ *
+ * @str: the given string
+ * Return: none
+ */
 void puts_half(char *str)
 {
 	int n, start;
@@ -28,9 +34,9 @@ void puts_half(char *str)
 	{
 		start = (length - 1) / 2;
 	}
-        for (n = start; n < length; n++)
-        {
-                _putchar(*(str + n));
-        }
-        _putchar('\n');
+	for (n = start; n < length; n++)
+	{
+		_putchar(*(str + n));
+	}
+	_putchar('\n');
 }

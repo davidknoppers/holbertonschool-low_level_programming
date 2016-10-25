@@ -14,6 +14,12 @@ int _strlen(char *s)
 		n++;
 	return (n);
 }
+/**
+ * puts2 - prints about half a given string
+ *
+ * @str: the given string
+ * Return: none
+ */
 void puts2(char *str)
 {
 	int n, end;
@@ -28,10 +34,12 @@ void puts2(char *str)
 	{
 		end = length - 1;
 	}
-        for (n = 0; n <= end; n++)
-        {
+	for (n = 0; n <= end; n++)
+	{
 		if (n % 2 == 0)
-                _putchar(*(str + n));
-        }
-        _putchar('\n');
+		{
+			_putchar(*(str + n));
+		}
+	}
+	_putchar('\n');
 }

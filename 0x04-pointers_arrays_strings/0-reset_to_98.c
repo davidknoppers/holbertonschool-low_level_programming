@@ -3,7 +3,8 @@
 
 /**
  * reset_to_98- changes the global value for int n to 98
- * 
+ *
+ * @n: an integer
  * Return: none
  */
 
