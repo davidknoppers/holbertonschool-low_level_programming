@@ -14,9 +14,8 @@ char *leet(char *chr)
 
 	i = 0;
 	while (*(chr + i) != '\0')
-{
-	j = 0;
-}
+	{
+		j = 0;
 	while (j <= 9)
 	{
 		if (*(chr + i) == letters[j])
@@ -27,6 +26,6 @@ char *leet(char *chr)
 		j++;
 	}
 	i++;
-}
-return (chr);
+	}
+	return (chr);
 }
