@@ -1,5 +1,10 @@
 #include "holberton.h"
-
+/**
+ * string_toupper - capitalizes lowercase letters
+ *
+ * @chr: string to capitalize
+ * Return: modified string
+ */
 char *string_toupper(char *chr)
 {
 	int i;
