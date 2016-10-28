@@ -13,6 +13,10 @@ char *cap_string(char *chr)
 	{
 		return (chr);
 	}
+	if (*chr >= 'a' && *chr <= 'z')
+	{
+		*chr -= 32;
+	}
 	i = 1;
 	while (*(chr + i) != '\0')
 	{
