@@ -2,8 +2,8 @@
 /**
  * _strstr - strings strings
  *
- * @s: string to be searched
- * @accept: string to match
+ * @haystack: string to be searched
+ * @needle: string to match
  * Return: pointer to match on success, NULL if failure
  */
 char *_strstr(char *haystack, char *needle)
@@ -15,20 +15,17 @@ char *_strstr(char *haystack, char *needle)
 	while (*haystack != '\0')
 	{
 		start = haystack;
-		while (*needle != '\0')
+		if (*start == *needle)
 		{
-			while (*haystack == *needle)
+			while (*start == *needle)
 			{
-				haystack++;
-				needle++;
+				start++, needle++;
 			}
 			if (*needle == '\0')
 				return (start);
 		}
-		needle = temp;
 		haystack++;
+		needle = temp;
 	}
-	if (*haystack == '\0')
-		return ('\0');
 	return (haystack);
 }
