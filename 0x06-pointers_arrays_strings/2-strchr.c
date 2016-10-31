@@ -26,7 +26,7 @@ char *_strchr(char *s, char c)
 	if (*s == '\0')
 		return (0);
 	len = _strlen(s);
-	for (n = 0; n < len; n++)
+	for (n = 0; n <= len; n++)
 	{
 		if (*(s + n) == c)
 			return (s + n);
