@@ -1,44 +1,34 @@
 #include "holberton.h"
 /**
- * _strlen - string length helper
+ * _strstr - strings strings
  *
- * @s: pointer to string
- * Return: length of string
- */
-int _strlen(char *s)
-{
-	int n;
-
-	for (n = 0; *s != '\0'; s++)
-		n++;
-	return (n);
-}
-/**
- * _strstr - strings strings, obviously
- *
- * @haystack: string to be searched
- * @needle: string to match
- * Return: pointer to start of match on success, NULL if failure
+ * @s: string to be searched
+ * @accept: string to match
+ * Return: pointer to match on success, NULL if failure
  */
 char *_strstr(char *haystack, char *needle)
 {
-	int hay_l, nd_l, n, i;
+	char *temp;
+	char *start;
 
-	hay_l = _strlen(haystack);
-	nd_l = _strlen(needle);
-	n = 0;
-	while (n < (hay_l - nd_l))
+	temp = needle;
+	while (*haystack != '\0')
 	{
-		for (i = 0; i < nd_l; i++)
+		start = haystack;
+		while (*needle != '\0')
 		{
-			if (*(needle + i) != *(haystack + n + i))
-				break;
-			if (i == (nd_l - 1) &&
-			    *(needle + i) == *(haystack + n + i))
-				return (haystack + n);
+			while (*haystack == *needle)
+			{
+				haystack++;
+				needle++;
+			}
+			if (*needle == '\0')
+				return (start);
 		}
-		n++;
+		needle = temp;
+		haystack++;
 	}
-	*haystack = '\0';
+	if (*haystack == '\0')
+		return ('\0');
 	return (haystack);
 }
