@@ -23,6 +23,8 @@ char *_strchr(char *s, char c)
 {
 	int len, n;
 
+	if (*s == '\0')
+		return (0);
 	len = _strlen(s);
 	for (n = 0; n < len; n++)
 	{
