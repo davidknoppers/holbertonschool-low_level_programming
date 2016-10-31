@@ -30,7 +30,7 @@ char *_strstr(char *haystack, char *needle)
 	hay_len = _strlen(haystack);
 	ndl_len = _strlen(needle);
 	if (hay_len < ndl_len)
-		return (0);
+		return ('\0');
 	temp = needle;
 	while (*haystack != '\0')
 	{
@@ -47,5 +47,5 @@ char *_strstr(char *haystack, char *needle)
 		haystack++;
 		needle = temp;
 	}
-	return (0);
+	return ('\0');
 }
