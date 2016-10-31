@@ -14,25 +14,6 @@ int _strlen(char *s)
 	return (n);
 }
 /**
- * _strchr - checks for a char in a string
- * @s: the string
- * @c: the char being searched for
- * Return: pointer to char on success, NULL on failure
- */
-char *_strchr(char *s, char c)
-{
-	int len, n;
-
-	len = _strlen(s);
-	for (n = 0; n < len; n++)
-	{
-		if (*(s + n) == c)
-			return (s + n);
-	}
-	s = '\0';
-	return (s);
-}
-/**
  * _strpbrk - strips... bark?
  *
  * @s: string to be searched

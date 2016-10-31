@@ -22,7 +22,6 @@ int _strlen(char *s)
 char *_strchr(char *s, char c)
 {
 	int len, n;
-	char **ptr;
 
 	len = _strlen(s);
 	for (n = 0; n < len; n++)
@@ -30,6 +29,6 @@ char *_strchr(char *s, char c)
 		if (*(s + n) == c)
 			return (s + n);
 	}
-	ptr = &s;
-	return (*ptr);
+	s = '\0';
+	return (s);
 }
