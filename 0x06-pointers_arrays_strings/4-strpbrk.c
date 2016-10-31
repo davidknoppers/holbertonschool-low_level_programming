@@ -1,19 +1,5 @@
 #include "holberton.h"
 /**
- * _strlen - string length helper
- *
- * @s: pointer to string
- * Return: length of string
- */
-int _strlen(char *s)
-{
-	int n;
-
-	for (n = 0; *s != '\0'; s++)
-		n++;
-	return (n);
-}
-/**
  * _strpbrk - strips... bark?
  *
  * @s: string to be searched
@@ -22,19 +8,21 @@ int _strlen(char *s)
  */
 char *_strpbrk(char *s, char *accept)
 {
-	int s_len, cept_len, n, i;
+	char *temp;
 
-	s_len = _strlen(s);
-	cept_len = _strlen(accept);
-	n = 0;
-	while (n <= s_len)
+	temp = accept;
+	while (*s != '\0')
 	{
-		for (i = 0; i <= cept_len; i++)
+		while (*accept != '\0')
 		{
-			if (*(accept + i) == *(s + n))
-				return (s + n);
+			if (*s == *accept)
+				return (s);
+			accept++;
 		}
-		n++;
+		accept = temp;
+		s++;
 	}
-	return ('\0');
+	if (*s == '\0')
+		return ('\0');
+	return (s);
 }
