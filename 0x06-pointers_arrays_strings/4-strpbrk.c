@@ -27,15 +27,14 @@ char *_strpbrk(char *s, char *accept)
 	s_len = _strlen(s);
 	cept_len = _strlen(accept);
 	n = 0;
-	while (n < s_len)
+	while (n <= s_len)
 	{
-		for (i = 0; i < cept_len; i++)
+		for (i = 0; i <= cept_len; i++)
 		{
 			if (*(accept + i) == *(s + n))
 				return (s + n);
 		}
 		n++;
 	}
-	*s = '\0';
-	return (s);
+	return ('\0');
 }
