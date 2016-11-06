@@ -11,11 +11,6 @@ int main(int argc, char *argv[])
 {
 	int i, n, sum;
 
-	if (argc < 3)
-	{
-		printf("0\n");
-		return (1);
-	}
 	for (i = 1, sum = 0; i < argc; i++)
 	{
 		n = atoi(argv[i]);
