@@ -11,7 +11,8 @@ int main(int argc, char *argv[])
 {
 	int i, n, sum;
 
-	for (i = 1, sum = 0; i < argc; i++)
+	sum = 0;
+	for (i = 1; i < argc; i++)
 	{
 		n = atoi(argv[i]);
 		if (n < 0 || !atoi(argv[i]))
