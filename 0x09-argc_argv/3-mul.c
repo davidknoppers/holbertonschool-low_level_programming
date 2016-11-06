@@ -1,37 +1,5 @@
 #include <stdio.h>
-/**
- * _atoi - converts a string to an integer
- *
- * @s: the input string
- * Return: the converted int
- */
-int _atoi(char *s)
-{
-	int n, sign, result;
-
-	sign = 1;
-	result = 0;
-	for (n = 0; *(s + n) != '\0'; n++)
-	{
-		if (*(s + n) == '-')
-		{
-			sign *= -1;
-		}
-		if (*(s + n) >= '0' && *(s + n) <= '9')
-		{
-			result = 10 * result - (*(s + n) - '0');
-		}
-		if (result < 0 && (*(s + n) < '0' || *(s + n) > '9'))
-		{
-			break;
-		}
-	}
-	if (sign > 0)
-	{
-		result *= -1;
-	}
-	return (result);
-}
+#include <stdlib.h>
 /**
  * main - multiplies two ints, assuming proper input
  *
@@ -44,13 +12,13 @@ int main(int argc, char *argv[])
 {
 	int i;
 
-	i = 1;
+	i = 0;
 	if (argc != 3)
 	{
 		printf("Error\n");
 		return (1);
 	}
-	i = _atoi(argv[1]) * _atoi(argv[2]);
+	i = atoi(argv[1]) * atoi(argv[2]);
 	printf("%d\n", i);
 	return (i);
 }
