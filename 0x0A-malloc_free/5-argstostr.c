@@ -47,13 +47,13 @@ char *argstostr(int ac, char **av)
 	int i, len;
 	char *str;
 
-	if (ac <= 1)
-		return (NULL);
 	len = 1;
 	for (i = 0; i < ac; i++)
 		len += _strlen(av[i]) + 1;
 
 	str = malloc(len * sizeof(char));
+	if (!str)
+		return (NULL);
 	str[0] = '\0';
 
 	for (i = 0; i < ac; i++)
