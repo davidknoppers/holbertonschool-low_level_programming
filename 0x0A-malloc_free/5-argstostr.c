@@ -56,7 +56,7 @@ char *argstostr(int ac, char **av)
 	str = malloc(len * sizeof(char));
 	str[0] = '\0';
 
-	for (i = 1; i < ac; i++)
+	for (i = 0; i < ac; i++)
 	{
 		_strcat(str, av[i]);
 		_strcat(str, "\n");
