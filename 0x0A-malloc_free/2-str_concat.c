@@ -37,13 +37,13 @@ char *_strcpy(char *dest, char *src)
 	return (dest);
 }
 /**
- * string_concat - concatenates two strings, if space suffices
+ * str_concat - concatenates two strings, if space suffices
  *
  * @s1: first string
  * @s2: second string
  * Return: pointer to beginning of combined string
  */
-char *string_concat(char *s1, char *s2)
+char *str_concat(char *s1, char *s2)
 {
 	char *buff = malloc(_strlen(s1) + _strlen(s2) + 1);
 
