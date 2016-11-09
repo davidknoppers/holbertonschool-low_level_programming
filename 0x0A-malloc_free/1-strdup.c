@@ -42,9 +42,11 @@ char *_strcpy(char *dest, char *src)
  */
 char *_strdup(char *str)
 {
-	char *dup = malloc(_strlen(str) + 1);
+	char *dup;
 
-	if (dup == NULL)
+	if (_strlen(str) > 0)
+		dup = malloc(_strlen(str) + 1);
+	else
 		return (NULL);
 	_strcpy(dup, str);
 	return (dup);
