@@ -46,11 +46,13 @@ char *_strcpy(char *dest, char *src)
 char *str_concat(char *s1, char *s2)
 {
 	char *buff;
+	char *empty = "";
 
-	if (_strlen(s1) > 0 || _strlen(s2) > 0)
-		buff = malloc(_strlen(s1) + _strlen(s2) + 1);
-	else
-		return (NULL);
+	if (s1 == NULL)
+		s1 = empty;
+	if (s2 == NULL)
+		s2 = empty;
+	buff = malloc(_strlen(s1) + _strlen(s2) + 1);
 	if (buff == NULL)
 		return (NULL);
 	_strcpy(buff, s1);
