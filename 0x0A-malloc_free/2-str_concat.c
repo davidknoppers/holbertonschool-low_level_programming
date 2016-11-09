@@ -47,7 +47,7 @@ char *str_concat(char *s1, char *s2)
 {
 	char *buff = malloc(_strlen(s1) + _strlen(s2) + 1);
 
-	if (buff == NULL)
+	if (buff == NULL || _strlen(s1) == 1 && _strlen(s2) == 1)
 		return (NULL);
 	_strcpy(buff, s1);
 	_strcpy(buff + _strlen(s1), s2);
