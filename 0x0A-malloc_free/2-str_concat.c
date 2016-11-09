@@ -51,6 +51,8 @@ char *str_concat(char *s1, char *s2)
 		buff = malloc(_strlen(s1) + _strlen(s2) + 1);
 	else
 		return (NULL);
+	if (buff == NULL)
+		return (NULL);
 	_strcpy(buff, s1);
 	_strcpy(buff + _strlen(s1), s2);
 	*(buff + _strlen(s1) + _strlen(s2) + 1) = '\0';
