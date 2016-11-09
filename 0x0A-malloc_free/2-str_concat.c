@@ -45,9 +45,11 @@ char *_strcpy(char *dest, char *src)
  */
 char *str_concat(char *s1, char *s2)
 {
-	char *buff = malloc(_strlen(s1) + _strlen(s2) + 1);
+	char *buff;
 
-	if (buff == NULL || _strlen(s1) == 1 && _strlen(s2) == 1)
+	if (_strlen(s1) > 0 || _strlen(s2) > 0)
+		buff = malloc(_strlen(s1) + _strlen(s2) + 1);
+	else
 		return (NULL);
 	_strcpy(buff, s1);
 	_strcpy(buff + _strlen(s1), s2);
