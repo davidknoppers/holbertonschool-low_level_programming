@@ -45,12 +45,12 @@ char *_strcpy(char *dest, char *src)
  */
 char *str_concat(char *s1, char *s2)
 {
-	char *buff = malloc(_strlen(s1) + _strlen(s2) + 1);
+	char *buff = malloc(_strlen(s1) + _strlen(s2));
 
 	if (buff == NULL)
 		return (NULL);
 	_strcpy(buff, s1);
 	_strcpy(buff + _strlen(s1), s2);
-	*(buff + _strlen(s1) + _strlen(s2) + 1) = '\0';
+	*(buff + _strlen(s1) + _strlen(s2)) = '\0';
 	return (buff);
 }
