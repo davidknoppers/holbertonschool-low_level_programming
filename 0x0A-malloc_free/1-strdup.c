@@ -44,11 +44,10 @@ char *_strdup(char *str)
 {
 	char *dup;
 
-	if (_strlen(str) > 0)
+	if (_strlen(str) > 1)
 		dup = malloc(_strlen(str) + 1);
 	else
 		return (NULL);
 	_strcpy(dup, str);
 	return (dup);
-
 }
