@@ -29,23 +29,21 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	char *buff;
 	char *empty = "";
 
+	i = 0, j = 0;
 	if (s1 == NULL)
 		s1 = empty;
 	if (s2 == NULL)
 		s2 = empty;
-	if (_strlen(s2) && _strlen(s1))
-		len = _strlen(s2);
-	else
-		return (NULL);
+	len = _strlen(s2);
 	if (n > len)
 		n = len;
 	buff = malloc((_strlen(s1) + n + 1) * sizeof(char));
 	if (buff == NULL)
 		return (NULL);
-	for (i = 0; *s1 != '\0'; s1++, i++)
-		buff[i] = *s1;
-	for (j = i; *s2 != '\0' && (j - i) <= n; s2++, j++)
-		buff[j] = *s2;
+	for (i = 0, j = 0; *(s1 + i) != '\0'; i++, j++)
+		*(buff + i) = (*s1 + i);
+	for (i = 0; i <= n; i++, j++)
+		*(buff + j) = *(s2 + i);
 	buff[j] = '\0';
 	return (buff);
 }
