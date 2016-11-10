@@ -86,18 +86,5 @@ int wordcount(char *str)
  */
 char **strtow(char *str)
 {
-	int len, i, j, wdct;
-	char *strtwo, *res;
-
-	if (str == NULL || _strlen(str) == 0 || wordcount(str) == 0)
-		return (NULL);
-	wdct = wordcount(str);
-	if (_strdup(str))
-		strtwo = _strdup(str);
-	else
-		return (NULL);
-	res = malloc((wdct + 1) * sizeof(*res));
-	if (res == NULL)
-		return (NULL);
 	return (NULL);
 }
