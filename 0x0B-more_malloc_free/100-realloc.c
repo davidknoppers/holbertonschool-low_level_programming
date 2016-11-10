@@ -21,23 +21,16 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 		free(ptr);
 		return (NULL);
 	}
-	if (ptr == NULL)
-	{
-		buff = malloc(new_size);
-		if (buff == NULL)
-		{
-			free(ptr);
-			return (NULL);
-		}
-		free(ptr);
-		return (buff);
-	}
-
 	buff = malloc(new_size);
 	if (buff == NULL)
 	{
 		free(ptr);
 		return (NULL);
+	}
+	if (ptr == NULL)
+	{
+		free(ptr);
+		return (buff);
 	}
 	tmp = ptr;
 	for (i = 0; i < old_size; i++)
