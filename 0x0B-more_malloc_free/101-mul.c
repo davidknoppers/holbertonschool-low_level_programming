@@ -1,7 +1,61 @@
-#include <stdio.h>
 #include <stdlib.h>
-int digitcheck(str)
+#include <unistd.h>
+#include "holberton.h"
+/**
+ * _putchar - writes the character c to stdout
+ * @c: The character to print
+ *
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
+ */
+int _putchar(char c)
 {
+	return (write(1, &c, 1));
+}
+/**
+ * _strlen - returns the length of a string
+ *
+ * @s: a given string
+ * Return: the length of the string
+ */
+int _strlen(char *s)
+{
+	unsigned int n;
+
+	for (n = 0; *s != '\0'; s++)
+		n++;
+	return (n);
+}
+/**
+ * digitcheck - checks numbers for IMPOSTERS
+ *
+ * @s: a given string
+ * Return: 1 for valid, 0 for IMPOSTER DETECTED
+ */
+int digitcheck(char *s)
+{
+	for (; *s != '\0'; s++)
+	{
+		if (*s > '9' || *s < '0')
+			return (0);
+	}
+	return (1);
+}
+/**
+ * _puts - prints a given string using pointers
+ *
+ * @str: a pointer to a string
+ * Return: none
+ */
+void _puts(char *str)
+{
+	int n;
+
+	for (n = 0; *(str + n) != '\0'; n++)
+	{
+		_putchar(*(str + n));
+	}
+	_putchar('\n');
 }
 /**
  * main - multiplies two ints, eventually
@@ -13,14 +67,42 @@ int digitcheck(str)
 
 int main(int argc, char *argv[])
 {
-	unsigned int i;
+	char *num1, *num2, *result;
+	int carry, shift, product, sum, num, i, j, end;
 
-	if (argc != 2)
+	if (argc != 3)
 	{
-		printf("Error\n");
+		_puts("Error");
 		exit (98);
 	}
-	i = atoi(argv[1]) * atoi(argv[2]);
-	printf("%d\n", i);
+	if (digitcheck(argv[1]) == 0 || digitcheck(argv[2]) == 0)
+	{
+		_puts("Error");
+		exit (98);
+	}
+	result = malloc((_strlen(argv[1]) + _strlen(argv[2])) * sizeof(int));
+	if (result == NULL)
+	{
+		_puts("Error");
+		exit(98);
+	}
+	end = _strlen(argv[1]) + _strlen(argv[2]) - 1;
+	for (j = _strlen(argv[2]) - 1; j >= 0; j--)
+	{
+		carry = 0;
+		shift = end;
+		for (i = _strlen(argv[1]) - 1; i >= 0; i--)
+		{
+			product = (argv[1][i] - '0') * (argv[2][j] - '0');
+			sum = product + result[shift] + carry;
+			num = sum % 10;
+			carry = sum / 10;
+			result[shift] = num + '0';
+			shift--;
+		}
+		result[shift] = result[shift] + carry;
+		end--;
+	}
+	_puts(result);
 	return (0);
 }
