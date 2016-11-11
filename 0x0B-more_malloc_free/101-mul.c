@@ -1,5 +1,30 @@
 #include <stdlib.h>
 #include "holberton.h"
+#include <stdio.h>
+/**
+ * _calloc - allocates memory and fills with zeroes
+ *
+ * @nmemb: awkwardly named number of elements
+ * @size: size of memory block, in bytes
+ *
+ * Return: pointer to memory created
+ */
+void *_calloc(unsigned int nmemb, unsigned int size)
+{
+	int *tmp;
+	void *buff;
+	int i;
+
+	if (nmemb == 0 || size == 0)
+		return (NULL);
+	buff = malloc(nmemb * size);
+	if (buff == NULL)
+		return (NULL);
+	tmp = buff;
+	for (i = 0; *(tmp + i) != '\0'; i++)
+		*(tmp + i) = 0;
+	return (buff);
+}
 /**
  * _strlen - returns the length of a string
  *
@@ -55,7 +80,7 @@ void _puts(char *str)
 
 int main(int argc, char *argv[])
 {
-	char *result;
+	int *result;
 	int carry, shift, product, sum, num, i, j, end;
 
 	if (argc != 3)
@@ -68,7 +93,7 @@ int main(int argc, char *argv[])
 		_puts("Error");
 		exit(98);
 	}
-	result = malloc((_strlen(argv[1]) + _strlen(argv[2])) * sizeof(int));
+	result = _calloc(_strlen(argv[1]) + _strlen(argv[2]), sizeof(int*));
 	if (result == NULL)
 	{
 		_puts("Error");
@@ -82,15 +107,22 @@ int main(int argc, char *argv[])
 		for (i = _strlen(argv[1]) - 1; i >= 0; i--)
 		{
 			product = (argv[1][i] - '0') * (argv[2][j] - '0');
+			printf("product: %d\n", product);
 			sum = product + result[shift] + carry;
+			printf("sum: %d\n", sum);
 			num = sum % 10;
 			carry = sum / 10;
-			result[shift] = num + '0';
+			printf("storing in result: %d and carrying: %d\n", num, carry);
+			result[shift] = num;
 			shift--;
 		}
 		result[shift] = result[shift] + carry;
 		end--;
 	}
-	_puts(result);
+	for (i = 0; i < _strlen(argv[1]) + _strlen(argv[2]); i++)
+	{
+		printf("%d", result[i]);
+	}
+	_putchar('\n');
 	return (0);
 }
