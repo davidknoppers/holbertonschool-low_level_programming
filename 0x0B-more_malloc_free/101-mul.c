@@ -67,7 +67,7 @@ void _puts(char *str)
 
 int main(int argc, char *argv[])
 {
-	char *num1, *num2, *result;
+	char *result;
 	int carry, shift, product, sum, num, i, j, end;
 
 	if (argc != 3)
