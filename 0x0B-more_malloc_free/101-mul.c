@@ -54,6 +54,31 @@ int digitcheck(char *s)
 	return (1);
 }
 /**
+ * int_print - prints those ints
+ *
+ * @arr: input array
+ * @len: length of array
+ * Return: none
+ */
+void int_print(int *arr, int len)
+{
+	int i;
+
+	i = 0;
+	while (i < len - 1)
+	{
+		if (arr[i] == 0)
+			i++;
+		else
+			break;
+	}
+	for (; i < len; i++)
+	{
+		_putchar(arr[i] + '0');
+	}
+	_putchar('\n');
+}
+/**
  * _puts - prints a given string using pointers
  *
  * @str: a pointer to a string
@@ -92,7 +117,7 @@ int main(int argc, char *argv[])
 		_puts("Error");
 		exit(98);
 	}
-	result = _calloc(_strlen(argv[1]) + _strlen(argv[2]), sizeof(int*));
+	result = _calloc(_strlen(argv[1]) + _strlen(argv[2]), sizeof(int *));
 	if (result == NULL)
 	{
 		_puts("Error");
@@ -115,10 +140,6 @@ int main(int argc, char *argv[])
 		result[shift] = result[shift] + carry;
 		end--;
 	}
-	for (i = 0; i < _strlen(argv[1]) + _strlen(argv[2]); i++)
-	{
-		_putchar(result[i] + '0');
-	}
-	_putchar('\n');
+	int_print(result, _strlen(argv[1]) + _strlen(argv[2]));
 	return (0);
 }
