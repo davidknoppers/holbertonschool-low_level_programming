@@ -73,12 +73,12 @@ int main(int argc, char *argv[])
 	if (argc != 3)
 	{
 		_puts("Error");
-		exit (98);
+		exit(98);
 	}
 	if (digitcheck(argv[1]) == 0 || digitcheck(argv[2]) == 0)
 	{
 		_puts("Error");
-		exit (98);
+		exit(98);
 	}
 	result = malloc((_strlen(argv[1]) + _strlen(argv[2])) * sizeof(int));
 	if (result == NULL)
