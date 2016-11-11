@@ -1,6 +1,5 @@
 #include <stdlib.h>
 #include "holberton.h"
-#include <stdio.h>
 /**
  * _calloc - allocates memory and fills with zeroes
  *
@@ -107,12 +106,9 @@ int main(int argc, char *argv[])
 		for (i = _strlen(argv[1]) - 1; i >= 0; i--)
 		{
 			product = (argv[1][i] - '0') * (argv[2][j] - '0');
-			printf("product: %d\n", product);
 			sum = product + result[shift] + carry;
-			printf("sum: %d\n", sum);
 			num = sum % 10;
 			carry = sum / 10;
-			printf("storing in result: %d and carrying: %d\n", num, carry);
 			result[shift] = num;
 			shift--;
 		}
@@ -121,7 +117,7 @@ int main(int argc, char *argv[])
 	}
 	for (i = 0; i < _strlen(argv[1]) + _strlen(argv[2]); i++)
 	{
-		printf("%d", result[i]);
+		_putchar(result[i] + '0');
 	}
 	_putchar('\n');
 	return (0);
