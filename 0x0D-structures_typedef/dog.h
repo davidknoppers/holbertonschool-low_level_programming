@@ -2,7 +2,6 @@
 #define DOGGIE
 int _putchar(char c);
 
-#ifndef dog
 /**
  * struct dog - struct for doggie
  *
@@ -10,7 +9,6 @@ int _putchar(char c);
  * @age: dogs are forever
  * @owner: dogs own the universe
  *
- * Return: none
  */
 struct dog
 {
