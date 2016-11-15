@@ -66,10 +66,19 @@ dog_t *new_dog(char *name, float age, char *owner)
 	instance = malloc(sizeof(dog_t));
 	if (instance == NULL)
 		return (NULL);
-	if (name == NULL || owner == NULL)
-		return (NULL);
 	instance->name = _strdup(name);
+	if (instance->name == NULL)
+	{
+		free(instance);
+		return (NULL);
+	}
 	instance->age = age;
 	instance->owner = _strdup(owner);
+	if (instance->owner == NULL)
+	{
+		free(instance->name);
+		free(instance);
+		return (NULL);
+	}
 	return (instance);
 }
