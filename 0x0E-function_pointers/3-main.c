@@ -1,5 +1,11 @@
 #include "calc.h"
-
+/**
+ * main - makes use of other fns to perform arithmetic
+ *
+ * @argc: number of inputs
+ * @argv: array of inputs as strings
+ * Return: Error or computed number
+ */
 int main(int argc, char *argv[])
 {
 	int a, b;
@@ -10,8 +16,8 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		exit(98);
 	}
-        a = atoi(argv[1]);
-        b = atoi(argv[3]);
+	a = atoi(argv[1]);
+	b = atoi(argv[3]);
 	fn = (get_op_func(argv[2]));
 	if (fn == NULL)
 	{
@@ -21,7 +27,7 @@ int main(int argc, char *argv[])
 	if ((*argv[2] == '/' || *argv[2] == '%') && b == 0)
 	{
 		printf("Error\n");
-                exit(99);
+		exit(99);
 	}
 	printf("%d\n", fn(a, b));
 	return (0);
