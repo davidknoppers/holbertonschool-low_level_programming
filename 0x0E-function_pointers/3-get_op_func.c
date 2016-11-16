@@ -21,7 +21,7 @@ int (*get_op_func(char *s))(int, int)
 	fns[4] = op_mod;
 	while (i < 5)
 	{
-		if (ops[i] == *s && *(s+1) == '\0')
+		if (ops[i] == *s && *(s + 1) == '\0')
 			return (fns[i]);
 		i++;
 	}
