@@ -1,4 +1,6 @@
 #include "calc.h"
+#include <stdio.h>
+#include <stdlib.h>
 /**
  * main - makes use of other fns to perform arithmetic
  *

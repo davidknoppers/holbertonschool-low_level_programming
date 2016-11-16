@@ -1,5 +1,5 @@
 #include "calc.h"
-
+#include <stdlib.h>
 /**
  * get_op_func - gets the right fn for main to execute
  *
