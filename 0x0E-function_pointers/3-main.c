@@ -2,7 +2,8 @@
 
 int main(int argc, char *argv[])
 {
-	int a, b, c;
+	int a, b;
+	int (*fn)(int, int);
 
 	a = atoi(argv[1]);
 	b = atoi(argv[3]);
@@ -11,12 +12,12 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		exit(98);
 	}
-	c = (*get_op_func(argv[2]))(a, b);
-	if (!(c))
+	fn = (get_op_func(argv[2]));
+	if (fn == NULL)
 	{
 		printf("Error\n");
 		exit(99);
 	}
-	printf("%d\n", c);
+	printf("%d\n", fn(a, b));
 	return (0);
 }
