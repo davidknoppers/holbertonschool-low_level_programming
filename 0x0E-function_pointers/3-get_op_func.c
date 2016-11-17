@@ -8,21 +8,20 @@
  */
 int (*get_op_func(char *s))(int, int)
 {
+	op_t ops[] = {
+		{"+", op_add},
+		{"-", op_sub},
+		{"*", op_mul},
+		{"/", op_div},
+		{"%", op_mod},
+		{NULL, NULL}
+	};
 	int i;
-
-	int (*fns[5])(int, int);
-	char ops[5] = {'+', '-', '/', '*', '%'};
-
 	i = 0;
-	fns[0] = op_add;
-	fns[1] = op_sub;
-	fns[2] = op_div;
-	fns[3] = op_mul;
-	fns[4] = op_mod;
 	while (i < 5)
 	{
-		if (ops[i] == *s && *(s + 1) == '\0')
-			return (fns[i]);
+		if (*(ops[i]).op == *s && *(s + 1) == '\0')
+			return (ops[i].f);
 		i++;
 	}
 	return (NULL);
