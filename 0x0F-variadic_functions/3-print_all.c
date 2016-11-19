@@ -6,50 +6,54 @@
 /**
  * print_c - prints chars
  * @c: an int for byte purposes
+ * @s: separator
  * Return: none
  */
-void print_c(int c)
+void print_c(int c, char *s)
 {
 	char g;
 
 	g = (char)c;
-	printf("%c", g);
+	printf("%s%c", s, g);
 }
 
 /**
  * print_i - prints ints
  * @c: int to print
+ * @s: separator
  * Return: none
  */
-void print_i(int c)
+void print_i(int c, char *s)
 {
-	printf("%d", c);
+	printf("%s%d", s, c);
 }
 
 /**
  * print_f - prints floats
  * @c: double for byte purposes
+ * @s: separator
  * Return: none
  */
-void print_f(double c)
+void print_f(double c, char *s)
 {
 	float k;
 
 	k = (float)c;
-	printf("%f", k);
+	printf("%s%f", s, k);
 }
 
 /**
  * print_s - prints strings
  * @c: pointer to string
+ * @s: separator
  * Return: none
  */
-void print_s(char *c)
+void print_s(char *c, char *s)
 {
 	if (c == NULL)
-		printf("(nil)");
+		c = "(nil)";
 	else
-		printf("%s", c);
+		printf("%s%s", s, c);
 }
 
 /**
@@ -68,19 +72,21 @@ void print_all(const char * const format, ...)
 	};
 	int i, j;
 	va_list ap;
+	char *s;
 
 	j = 0;
+	s = "";
 	va_start(ap, format);
 	while (format[j] != '\0' && format != NULL)
 	{
 		i = 0;
 		while (i < 4)
 		{
-			if (format[j] == *(funcs[i]).letter)
+			while (format[j] == *(funcs[i]).letter)
 			{
-				funcs[i].f(va_arg(ap, int));
+				funcs[i].f(va_arg(ap, int), s);
 				if (format[j + 1] != '\0')
-					printf(", ");
+					s = (", ");
 				break;
 			}
 			i++;
