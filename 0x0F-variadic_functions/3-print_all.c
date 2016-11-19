@@ -21,7 +21,7 @@ void print_all(const char * const format, ...)
 		switch (*fmtr++)
 		{
 		case 'c':
-			c = (char) va_arg(ap, int);
+			c = (char)va_arg(ap, int);
 			printf("%c", c);
 			break;
 		case 'i':
@@ -46,6 +46,6 @@ void print_all(const char * const format, ...)
 				       || *fmtr == 'i' || *fmtr == 's'))
 			printf(", ");
 	}
-	printf("\n");
+	putchar('\n');
 	va_end(ap);
 }
