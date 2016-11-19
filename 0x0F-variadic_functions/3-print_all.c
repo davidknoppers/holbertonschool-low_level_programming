@@ -82,11 +82,10 @@ void print_all(const char * const format, ...)
 		i = 0;
 		while (i < 4)
 		{
-			while (format[j] == *(funcs[i]).letter)
+			if (format[j] == (*funcs[i].letter))
 			{
 				funcs[i].f(va_arg(ap, int), s);
-				if (format[j + 1] != '\0')
-					s = (", ");
+				s = (", ");
 				break;
 			}
 			i++;
