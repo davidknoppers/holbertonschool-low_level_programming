@@ -52,8 +52,7 @@ void print_s(char *c, char *s)
 {
 	if (c == NULL)
 		c = "(nil)";
-	else
-		printf("%s%s", s, c);
+	printf("%s%s", s, c);
 }
 
 /**
