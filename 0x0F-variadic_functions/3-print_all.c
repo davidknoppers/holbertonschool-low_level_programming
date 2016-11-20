@@ -9,12 +9,9 @@
  * @s: separator
  * Return: none
  */
-void print_c(int c, char *s)
+void print_c(va_list c, char *s)
 {
-	char g;
-
-	g = (char)c;
-	printf("%s%c", s, g);
+	printf("%s%c", s, va_arg(c, int));
 }
 
 /**
@@ -23,9 +20,9 @@ void print_c(int c, char *s)
  * @s: separator
  * Return: none
  */
-void print_i(int c, char *s)
+void print_i(va_list c, char *s)
 {
-	printf("%s%d", s, c);
+	printf("%s%d", s, va_arg(c, int));
 }
 
 /**
@@ -34,12 +31,9 @@ void print_i(int c, char *s)
  * @s: separator
  * Return: none
  */
-void print_f(double c, char *s)
+void print_f(va_list c, char *s)
 {
-	float k;
-
-	k = (float)c;
-	printf("%s%f", s, k);
+	printf("%s%f", s, va_arg(c, double));
 }
 
 /**
@@ -48,11 +42,14 @@ void print_f(double c, char *s)
  * @s: separator
  * Return: none
  */
-void print_s(char *c, char *s)
+void print_s(va_list c, char *s)
 {
-	if (c == NULL)
-		c = "(nil)";
-	printf("%s%s", s, c);
+	char *temp;
+
+	temp = va_arg(c, char *);
+	if (temp == NULL)
+		temp = "(nil)";
+	printf("%s%s", s, temp);
 }
 
 /**
@@ -83,9 +80,8 @@ void print_all(const char * const format, ...)
 		{
 			if (format[j] == (*funcs[i].letter))
 			{
-				funcs[i].f(va_arg(ap, int), s);
+				funcs[i].f(ap, s);
 				s = (", ");
-				break;
 			}
 			i++;
 		}
