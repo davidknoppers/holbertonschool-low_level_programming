@@ -1,5 +1,7 @@
+#include <stdlib.h>
+#include "lists.h"
 /**
- * find_listint_loop - the tortoise and hare algorithm!
+ * find_listint_loop - Floyd's Cycle Finding Algorithm!
  * @head: ptr to start of linked list
  * Return: ptr to loop
  */
