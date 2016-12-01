@@ -1,5 +1,3 @@
-#include <stdlib.h>
-#include <stdio.h>
 #include "lists.h"
 /**
  * print_listint - iterates through a linked list and prints its elements

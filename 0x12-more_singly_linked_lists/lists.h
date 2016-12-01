@@ -1,6 +1,8 @@
 #ifndef LINK_THOSE_LISTS
 #define LINK_THOSE_LISTS
 
+#include <stdlib.h>
+#include <stdio.h>
 /**
  * struct listint_s - singly linked list
  * @n: integer

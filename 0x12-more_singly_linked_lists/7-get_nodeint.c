@@ -1,4 +1,3 @@
-#include <stdlib.h>
 #include "lists.h"
 /**
  * get_nodeint_at_index - gets a node at a given index

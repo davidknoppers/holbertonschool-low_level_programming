@@ -1,4 +1,3 @@
-#include <stdlib.h>
 #include "lists.h"
 /**
  * pop_listint - removes first node and makes head the next node

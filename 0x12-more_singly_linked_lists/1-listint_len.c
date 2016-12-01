@@ -1,4 +1,3 @@
-#include <stdlib.h>
 #include "lists.h"
 /**
  * listint_len - iterates through a linked list and returns # of elements

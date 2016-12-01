@@ -1,5 +1,3 @@
-#include <stdlib.h>
-#include <stdio.h>
 #include "lists.h"
 /**
  * print_list_recur - recurs to check for loops, print, and track length
