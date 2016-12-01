@@ -15,6 +15,19 @@ typedef struct listint_s
 	struct listint_s *next;
 } listint_t;
 
+/**
+ * struct listint_checker - ll to check properties of another ll
+ * @address: address of node
+ * @next: ptr to next node
+ * Description: singly linked list node structure
+ * for Holberton project
+ */
+typedef struct listint_checker
+{
+	const listint_t *address;
+	struct listint_checker *next;
+} listint_checker;
+
 size_t print_listint(const listint_t *h);
 size_t listint_len(const listint_t *h);
 listint_t *add_nodeint(listint_t **head, const int n);

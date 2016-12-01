@@ -1,6 +1,12 @@
 #include <stdlib.h>
 #include "lists.h"
 #include <stdio.h>
+/**
+ * print_list_recur - recurs to check for loops, print, and track length
+ * @head: ptr to head
+ * @previous: ptr to previous node, if any
+ * Return: length of ll
+ */
 int print_list_recur(const listint_t *head, listint_checker *previous)
 {
 	listint_checker current, *temp;
