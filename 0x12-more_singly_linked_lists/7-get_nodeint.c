@@ -13,16 +13,16 @@ listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 
 	if (head == NULL)
 		return (NULL);
-        temp = malloc(sizeof(listint_t));
-        if (temp == NULL)
-                return (NULL);
+	temp = malloc(sizeof(listint_t));
+	if (temp == NULL)
+		return (NULL);
 	temp = head;
 	j = index;
-        for (i = 0; i < j - 1; i++)
+	for (i = 0; i < j - 1; i++)
 	{
 		if (temp->next == NULL)
 			return (NULL);
-                temp = temp->next;
+		temp = temp->next;
 	}
 	return (temp);
 }
