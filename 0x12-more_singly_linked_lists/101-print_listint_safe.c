@@ -16,8 +16,8 @@ int print_list_recur(const listint_t *head, listint_checker *previous)
 		printf("[%p] %d\n", (void *)head, head->n);
 		return (1);
 	}
-	current.address = head;
 	current.next = previous;
+	current.address = head;
 	temp = current.next;
 	while (temp && temp->address != head)
 		temp = temp->next;
