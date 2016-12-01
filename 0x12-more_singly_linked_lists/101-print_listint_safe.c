@@ -1,6 +1,5 @@
 #include <stdlib.h>
 #include "lists.h"
-#include <stdio.h>
 /**
  * print_list_recur - recurs to check for loops, print, and track length
  * @head: ptr to head
