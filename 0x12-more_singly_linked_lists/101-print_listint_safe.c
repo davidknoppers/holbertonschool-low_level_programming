@@ -37,6 +37,6 @@ int print_list_recur(const listint_t *head, listint_checker *previous)
 size_t print_listint_safe(const listint_t *head)
 {
 	if (head == NULL)
-		exit(98);
+		return (0);
 	return (print_list_recur(head, NULL));
 }
