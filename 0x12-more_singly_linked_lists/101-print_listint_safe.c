@@ -1,0 +1,36 @@
+#include <stdlib.h>
+#include "lists.h"
+#include <stdio.h>
+int print_list_recur(const listint_t *head, listint_checker *previous)
+{
+	listint_checker current, *temp;
+
+	if (head->next == NULL)
+	{
+		printf("[%p] %d\n", (void *)head, head->n);
+		return (1);
+	}
+	current.address = head;
+	current.next = previous;
+	temp = current.next;
+	while (temp && temp->address != head)
+		temp = temp->next;
+	if (temp != NULL)
+	{
+		printf("[%p] %d\n", (void *)head, head->n);
+		return (0);
+	}
+	printf("[%p] %d\n", (void *)head, head->n);
+	return (1 + print_list_recur(head->next, &current));
+}
+/**
+ * print_listint_safe - wrapper for recursive print function
+ * @head: ptr to head of linked list
+ * Return: number of nodes in list
+ */
+size_t print_listint_safe(const listint_t *head)
+{
+	if (head == NULL)
+		exit(98);
+	return (print_list_recur(head, NULL));
+}
