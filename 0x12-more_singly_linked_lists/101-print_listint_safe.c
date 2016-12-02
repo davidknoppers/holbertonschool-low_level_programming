@@ -21,7 +21,7 @@ int print_list_recur(const listint_t *head, listint_checker *previous)
 		temp = temp->next;
 	if (temp != NULL)
 	{
-		printf("[%p] %d\n", (void *)head, head->n);
+		printf("-> [%p] %d\n", (void *)head, head->n);
 		return (0);
 	}
 	printf("[%p] %d\n", (void *)head, head->n);
