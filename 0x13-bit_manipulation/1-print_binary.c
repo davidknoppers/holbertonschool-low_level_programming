@@ -1,17 +1,7 @@
 #include "holberton.h"
-#include <unistd.h>
+#include <stdio.h>
 
-/**
- * _putchar - writes the character c to stdout
- * @c: The character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
- */
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
-}
+
 /**
  * print_binary - converts a number from uint to binary
  * @n: uint input
@@ -27,7 +17,7 @@ void print_binary(unsigned long int n)
 
 	if (n == 0)
 	{
-		_putchar('0');
+		printf("0");
 		return;
 	}
 	while (mask > 0)
@@ -35,11 +25,11 @@ void print_binary(unsigned long int n)
 		if ((n & mask) == 0)
 		{
 			if (zero_flag == 1)
-				_putchar('0');
+				printf("0");
 		}
 		else
 		{
-			_putchar('1');
+			printf("1");
 			zero_flag = 1;
 		}
 		mask >>= 1;
