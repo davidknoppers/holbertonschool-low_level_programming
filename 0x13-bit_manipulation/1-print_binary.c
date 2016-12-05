@@ -14,7 +14,7 @@ int _putchar(char c)
 }
 /**
  * print_binary - converts a number from uint to binary
- * @b: uint input
+ * @n: uint input
  * Return: converted long uint
  */
 void print_binary(unsigned long int n)
