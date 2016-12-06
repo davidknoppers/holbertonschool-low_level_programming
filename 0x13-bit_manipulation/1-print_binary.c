@@ -1,37 +1,35 @@
 #include "holberton.h"
 #include <stdio.h>
-
-
 /**
- * print_binary - converts a number from uint to binary
+ * binary_recurse - prints a num in binary
+ * @n: an integer, divided by two each call
+ *
+ */
+void binary_recurse(unsigned long int n)
+{
+	while (n > 0)
+	{
+		binary_recurse(n >> 1);
+		if (n & 1)
+		{
+			printf("1");
+			return;
+		}
+		printf("0");
+		return;
+	}
+}
+/**
+ * print_binary - wrapper for recursive print binary fn
  * @n: uint input
- * Return: converted long uint
+ * Return: none
  */
 void print_binary(unsigned long int n)
 {
-	unsigned long int mask;
-	int zero_flag;
-
-	zero_flag = 0;
-	mask = 4294967296;
-
 	if (n == 0)
 	{
 		printf("0");
 		return;
 	}
-	while (mask > 0)
-	{
-		if ((n & mask) == 0)
-		{
-			if (zero_flag == 1)
-				printf("0");
-		}
-		else
-		{
-			printf("1");
-			zero_flag = 1;
-		}
-		mask >>= 1;
-	}
+	binary_recurse(n);
 }
