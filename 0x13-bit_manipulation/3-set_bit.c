@@ -1,5 +1,5 @@
 /**
- * set_bit - setbs bit to 1 at given index
+ * set_bit - sets bit to 1 at given index
  * @n: input number
  * @index: index to set to 1
  * Return: 1 on success, -1 on error
