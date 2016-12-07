@@ -33,7 +33,7 @@ int main(int ac, char **av)
 		exit(97);
 	}
 	from = open(av[1], O_RDONLY);
-	to = open(av[2], O_RDWR | O_CREAT, 0664);
+	to = open(av[2], O_WRONLY | O_CREAT, 0664);
 	if (from == -1)
 	{
 		dprintf(2, "Error: Can't read from file %s\n", av[1]);
@@ -47,10 +47,10 @@ int main(int ac, char **av)
 	while ((read_from = read(from, buffer, sizeof(buffer))) > 0)
 	{
 		write_to = write(to, buffer, from);
-		if (read_from != write_to)
+		if (read_from != write_to || read_from < 0)
 		{
 			dprintf(2, "Error: Can't read from file %s\n", av[2]);
-			exit(90);
+			exit(99);
 		}
 	}
 	close(from);
