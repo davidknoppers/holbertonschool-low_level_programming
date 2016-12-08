@@ -26,7 +26,7 @@ int main(int ac, char **av)
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]), exit(98);
 	fdw = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, permissions);
 	if (fdw == -1)
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[2]), exit(99);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]), exit(99);
 
 	error_check = bytes = 1;
 	while (bytes)
@@ -38,7 +38,7 @@ int main(int ac, char **av)
 		{
 			error_check = write(fdw, buffer, bytes);
 			if (error_check == -1)
-				dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", av[2]), exit(99);
+				dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]), exit(99);
 		}
 	}
 	error_check = close(fdr);
