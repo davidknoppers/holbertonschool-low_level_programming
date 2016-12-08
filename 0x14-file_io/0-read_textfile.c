@@ -1,6 +1,6 @@
 #include <unistd.h>
-#include <fcntl.h>
 #include <stdlib.h>
+#include <fcntl.h>
 /**
  * _putchar - writes the character c to stdout
  * @c: The character to print
@@ -28,11 +28,12 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (filename == NULL)
 		return (0);
 
-	buffer = malloc(sizeof(char) * letters);
-	if (buffer == NULL)
-		return (0);
 	file = open(filename, O_RDONLY);
 	if (file == -1)
+		return (0);
+
+	buffer = malloc(sizeof(char) * letters);
+	if (buffer == NULL)
 		return (0);
 
 	letter_count = read(file, buffer, letters);
