@@ -4,35 +4,6 @@
 #include "holberton.h"
 #include <stdlib.h>
 /**
- * _strlen - returns length of char string
- * @s: ptr to str
- * Return: strlen, an int
- */
-int _strlen(char *s)
-{
-	int n;
-	for (n = 0; *s != '\0'; s++)
-		n++;
-	return (n);
-}
-/**
- * close_file - attempts to close a file
- * @file: int representing file
- * Return: 0 if closed, -1 if not
- */
-int close_file(int file)
-{
-	int temp;
-
-	temp = close(file);
-	if (temp == -1)
-	{
-		dprintf(2, "Error: Can't close fd %i\n", file);
-		return (-1);
-	}
-	return (0);
-}
-/**
  * main - attempts to copy from file to file
  * @ac: should be 3
  * @av: the two files to use, in sequence
@@ -40,37 +11,44 @@ int close_file(int file)
  */
 int main(int ac, char **av)
 {
-	char buffer[1024];
-	int from, to;
-	ssize_t read_from, write_to;
+	char buffer[1204];
+	int from, to, bytes, error_check;
+	mode_t permissions = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
 
 	if (ac != 3)
 	{
-		dprintf(2, "Usage: cp file_from file_to\n");
-		exit(97);
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"), exit(97);
 	}
+	if (av[1] == NULL)
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]), exit(98);
+	if (av[2] == NULL)
+		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", av[2]), exit(99);
 	from = open(av[1], O_RDONLY);
-	to = open(av[2], O_WRONLY | O_CREAT, 0664);
 	if (from == -1)
 	{
-		dprintf(2, "Error: Can't read from file %s\n", av[1]);
-		exit(98);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]), exit(98);
 	}
+	to = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, permissions);
 	if (to == -1)
 	{
-		dprintf(2, "Error: Can't read from file %s\n", av[2]);
-		exit(99);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[2]), exit(99);
 	}
-	while ((read_from = read(from, buffer, sizeof(buffer))) > 0)
+	error_check = bytes = 1;
+	while (bytes)
 	{
-		write_to = write(to, buffer, from);
-		if (read_from != write_to || read_from < 0)
-		{
-			dprintf(2, "Error: Can't read from file %s\n", av[2]);
-			exit(99);
-		}
+		bytes = read(from, buffer, 1204);
+		if (bytes == -1)
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]), exit(98);
+		if (bytes > 0)
+			error_check = write(to, buffer, bytes);
+		if (error_check == -1)
+			dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", av[2]), exit(99);
 	}
-	if (close_file(from) == -1 || close_file(to) == -1)
-		exit(100);
+	error_check = close(from);
+	if (error_check == -1)
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", from), exit(100);
+	error_check = close(to);
+	if (error_check == -1)
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", to), exit(100);
 	return (0);
 }
