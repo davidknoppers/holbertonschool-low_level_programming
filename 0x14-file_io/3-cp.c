@@ -16,6 +16,23 @@ int _strlen(char *s)
 	return (n);
 }
 /**
+ * close_file - attempts to close a file
+ * @file: int representing file
+ * Return: 0 if closed, -1 if not
+ */
+int close_file(int file)
+{
+	int i;
+
+	temp = close(file);
+	if (i == -1)
+	{
+		dprintf(2, "Error: Can't close fd %i\n", file);
+		return (-1);
+	}
+	return (0);
+}
+/**
  * main - attempts to copy from file to file
  * @ac: should be 3
  * @av: the two files to use, in sequence
@@ -53,7 +70,7 @@ int main(int ac, char **av)
 			exit(99);
 		}
 	}
-	close(from);
-	close(to);
+	if (close_file(from) == -1 || close_file(to) == -1)
+		exit(100);
 	return (0);
 }
