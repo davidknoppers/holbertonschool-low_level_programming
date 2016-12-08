@@ -1,7 +1,6 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <stdlib.h>
-#include "holberton.h"
 /**
  * _putchar - writes the character c to stdout
  * @c: The character to print
