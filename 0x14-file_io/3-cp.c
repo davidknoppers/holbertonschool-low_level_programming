@@ -22,10 +22,10 @@ int _strlen(char *s)
  */
 int close_file(int file)
 {
-	int i;
+	int temp;
 
 	temp = close(file);
-	if (i == -1)
+	if (temp == -1)
 	{
 		dprintf(2, "Error: Can't close fd %i\n", file);
 		return (-1);
