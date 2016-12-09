@@ -29,11 +29,12 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (letter_count == -1)
 		return (0);
 
+
 	free(buffer);
 
 	temp = close(file);
 	if (temp == -1)
 		return (0);
-
+	free(buffer);
 	return (letter_count);
 }
