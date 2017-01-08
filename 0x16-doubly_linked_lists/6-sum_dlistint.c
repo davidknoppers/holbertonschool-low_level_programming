@@ -12,9 +12,6 @@ int sum_dlistint(dlistint_t *head)
 	sum = 0;
 	if (head == NULL)
 		return (sum);
-	temp = malloc(sizeof(dlistint_t));
-	if (temp == NULL)
-		return (sum);
 	temp = head;
 	sum += temp->n;
 	while (temp->next != NULL)
@@ -22,6 +19,5 @@ int sum_dlistint(dlistint_t *head)
 		temp = temp->next;
 		sum += temp->n;
 	}
-	free(temp);
 	return (sum);
 }
