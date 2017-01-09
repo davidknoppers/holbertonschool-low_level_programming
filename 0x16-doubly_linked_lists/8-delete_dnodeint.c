@@ -20,7 +20,6 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		if (temp->next == NULL)
 			return (-1);
 	}
-	printf("Attempting to remove: %d\n", temp->n);
 	if (i == index)
 	{
 		if ((*head)->next == NULL)
