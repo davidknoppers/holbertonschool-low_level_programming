@@ -8,32 +8,44 @@
  */
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
-	dlistint_t *temp1, *temp2;
+	dlistint_t *temp;
 	unsigned int i;
 
 	if (!head || !(*head))
 		return (-1);
-	temp1 = *head;
-	if (index == 0)
+	temp = *head;
+	for (i = 0; temp != NULL && i < index; i++)
 	{
-		*head = temp1->next;
-		if (temp1->next)
-			(temp1->next)->prev = NULL;
-		free(temp1);
+		temp = temp->next;
+		if (temp->next == NULL)
+			return (-1);
+	}
+	printf("Attempting to remove: %d\n", temp->n);
+	if (i == index)
+	{
+		if ((*head)->next == NULL)
+		{
+			*head = NULL;
+			free(temp);
+			return (1);
+		}
+		if (temp == (*head))
+		{
+			(*head) = (*head)->next;
+			(*head)->prev = NULL;
+			free(temp);
+			return (1);
+		}
+		if (temp->next == NULL)
+		{
+			temp->prev->next = NULL;
+			free(temp);
+			return (1);
+		}
+		temp->prev->next = temp->next;
+		temp->next->prev = temp->prev;
+		free(temp);
 		return (1);
 	}
-	for (i = 0; i < index - 1; i++)
-	{
-		if (temp1->next == NULL)
-			return (-1);
-		temp1 = temp1->next;
-	}
-	if (i != (index - 1))
-		return (-1);
-	temp2 = temp1->prev;
-	temp2->next = temp1->next;
-	if (temp2->next)
-		(temp2->next)->prev = temp1;
-	free(temp1);
-	return (1);
+	return (-1);
 }
