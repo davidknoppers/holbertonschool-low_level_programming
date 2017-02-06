@@ -8,23 +8,26 @@
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	unsigned long int size, index;
+	unsigned long int index;
 	hash_node_t *new;
 
 /*if there's no table or key we can't do much here*/
-	if (!ht || !key)
+	if (!ht || !key || !value)
 		return (0);
 /*get size of table and use key_index to get the key index*/
-	size = ht->size;
-	index = key_index((const unsigned char *)key, size);
-/*malloc for new node*/
+	index = key_index((const unsigned char *)key, ht->size);
+	new = ht->array[index];
+	if (new && strcmp(new->key, (char *)key))
+	{
+		new->value = strdup(value);
+		return (1);
+	}
 	new = malloc(sizeof(hash_node_t));
-	if (!new)
+	if (new == NULL)
 		return (0);
-/*assign values for new node, return 1 for success */
+	new->next = ht->array[index];
 	new->key = strdup(key);
 	new->value = strdup(value);
-	new->next = ht->array[index];
 	ht->array[index] = new;
 	return (1);
 }
