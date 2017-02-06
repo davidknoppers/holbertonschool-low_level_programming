@@ -17,17 +17,18 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 /*get size of table and use key_index to get the key index*/
 	index = key_index((const unsigned char *)key, ht->size);
 	new = ht->array[index];
-	if (new && strcmp(new->key, (char *)key))
+	if (new && strcmp(new->key, (char *)key) == 0)
 	{
 		new->value = strdup(value);
 		return (1);
 	}
+	new = NULL;
 	new = malloc(sizeof(hash_node_t));
 	if (new == NULL)
 		return (0);
-	new->next = ht->array[index];
 	new->key = strdup(key);
 	new->value = strdup(value);
+	new->next = ht->array[index];
 	ht->array[index] = new;
 	return (1);
 }
