@@ -15,6 +15,43 @@ typedef struct listint_s
 	struct listint_s *next;
 } listint_t;
 
+/**
+ * dlistint_len - iterates through a linked list and returns # of elements
+ * @h: pointer to first element in list
+ * Return: # of elements in the list
+ */
+size_t dlistint_len(const dlistint_t *h)
+{
+	size_t i;
+
+	i = 0;
+	while (h != NULL)
+	{
+		h = h->next;
+		i++;
+	}
+	return (i);
+}
+/**
+ * swap_values - swaps values of two adjacent dll nodes
+ * @node1: ptr to first node
+ * @node2: ptr to second node
+ */
+void swap_values(listint_t *left, listint_t *right)
+{
+        listint_t *temp;
+
+	if (left->prev)
+		(left->prev)->next = right;
+	if (right->next)
+		(right->next)->prev = left;
+	left->next = right->next;
+	right->prev = left->prev;
+
+	left->prev = right;
+	right->next = left;
+}
+
 void print_array(const int *array, size_t size);
 
 void print_list(const listint_t *list);
