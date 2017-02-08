@@ -8,7 +8,7 @@ size_t hoare_partition(int *array, size_t right)
 	printf("pivot is %d\n", pivot);
 
 	i = 0, j = right;
-	while (i <= j)
+	while (i < j)
 	{
 		while (array[i] < pivot)
 			i++;
@@ -16,7 +16,7 @@ size_t hoare_partition(int *array, size_t right)
 		while (array[j] > pivot)
 			j--;
 		printf("j is %d\n", array[j]);
-		if (i <= j)
+		if (i < j)
 		{
 			print_array(array, right + 1);
 			printf("a swap should occur between %d and %d\n", array[i], array[j]);
