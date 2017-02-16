@@ -5,21 +5,15 @@ size_t hoare_partition(int *array, size_t right)
 	int temp, pivot;
 
 	pivot = array[right];
-	printf("pivot is %d\n", pivot);
-
 	i = 0, j = right;
 	while (i < j)
 	{
 		while (array[i] < pivot)
 			i++;
-		printf("i is %d\n", array[i]);
 		while (array[j] > pivot)
 			j--;
-		printf("j is %d\n", array[j]);
 		if (i < j)
 		{
-			print_array(array, right + 1);
-			printf("a swap should occur between %d and %d\n", array[i], array[j]);
 			temp = array[i];
 			array[i] = array[j];
 			array[j] = temp;
