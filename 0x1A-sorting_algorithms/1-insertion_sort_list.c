@@ -50,6 +50,8 @@ void insertion_sort_list(listint_t **list)
 	listint_t *temp1;
 
 	length = listint_len(*list);
+	if (length <= 1)
+		return;
 	for (i = 1; i < length; i++)
 	{
 		temp1 = (get_node_at_index(*list, i));
