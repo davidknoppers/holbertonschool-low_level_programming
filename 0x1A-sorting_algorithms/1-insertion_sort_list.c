@@ -1,41 +1,51 @@
 #include "sort.h"
+/**
+ *
+ *
+ *
+ */
 listint_t *get_node_at_index(listint_t *head, size_t index)
 {
-        size_t i;
+	size_t i;
 
-        if (head == NULL)
-                return (NULL);
-        for (i = 0; i < index && head != NULL; i++)
-        {
-                head = head->next;
-        }
-        if (i != index)
-                return (NULL);
-        return (head);
+	if (head == NULL)
+		return (NULL);
+	for (i = 0; i < index && head != NULL; i++)
+	{
+		head = head->next;
+	}
+	if (i != index)
+		return (NULL);
+	return (head);
 }
+/**
+ *
+ *
+ *
+ */
 void swap_values(listint_t *left, listint_t *right)
 {
-        if (left->prev)
-                (left->prev)->next = right;
-        if (right->next)
-                (right->next)->prev = left;
-        left->next = right->next;
-        right->prev = left->prev;
+	if (left->prev)
+		(left->prev)->next = right;
+	if (right->next)
+		(right->next)->prev = left;
+	left->next = right->next;
+	right->prev = left->prev;
 
-        left->prev = right;
-        right->next = left;
+	left->prev = right;
+	right->next = left;
 }
 size_t listint_len(const listint_t *h)
 {
-        size_t i;
+	size_t i;
 
-        i = 0;
-        while (h != NULL)
-        {
-                h = h->next;
-                i++;
-        }
-        return (i);
+	i = 0;
+	while (h != NULL)
+	{
+		h = h->next;
+		i++;
+	}
+	return (i);
 }
 /**
  * insertion_sort_list - sorts a dll using the classic sort
