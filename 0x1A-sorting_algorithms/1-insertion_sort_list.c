@@ -1,8 +1,9 @@
 #include "sort.h"
 /**
- *
- *
- *
+ * get_node_at_index - gets the node at that index
+ * @head: ptr to head of node
+ * @index: index of node
+ * Return: ptr to node at index
  */
 listint_t *get_node_at_index(listint_t *head, size_t index)
 {
@@ -19,9 +20,10 @@ listint_t *get_node_at_index(listint_t *head, size_t index)
 	return (head);
 }
 /**
- *
- *
- *
+ * swap_values - badly-named subroutine that swaps nodes
+ * @left: nooode to the left
+ * @right: nooode to the right
+ * two nodes this time!
  */
 void swap_values(listint_t *left, listint_t *right)
 {
@@ -35,6 +37,11 @@ void swap_values(listint_t *left, listint_t *right)
 	left->prev = right;
 	right->next = left;
 }
+/**
+ * listint_len - gets the length of a linked list
+ * @h: ptr to head of ll
+ * Return: length as a size_t
+ */
 size_t listint_len(const listint_t *h)
 {
 	size_t i;
