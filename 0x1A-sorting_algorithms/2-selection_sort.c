@@ -2,10 +2,8 @@
 
 /**
  * selection_sort - n^2 num sorting algo
- *
  * @arr: input array
- * size: size of input array
- *
+ * @size: size of input array
  */
 void selection_sort(int *array, size_t size)
 {
