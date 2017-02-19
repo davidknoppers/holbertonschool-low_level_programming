@@ -1,7 +1,6 @@
 #ifndef SORT_EM
 #define SORT_EM
 #include <stdlib.h>
-#include <stdio.h>
 /**
  * struct listint_s - Doubly linked list node
  *
