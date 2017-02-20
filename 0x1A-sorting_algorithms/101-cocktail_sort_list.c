@@ -62,18 +62,16 @@ int listint_len(const listint_t *h)
 void cocktail_sort_list(listint_t **list)
 {
 	int i, end, start, flag;
-
 	listint_t *current;
 
 	end = listint_len(*list);
-	flag = 0;
-	start = 1;
-	current = get_node_at_index(*list, end - 1);
+	if (end <= 1)
+		return;
+	flag = 0, start = 1, current = get_node_at_index(*list, end - 1);
 	while (end > 0)
 	{
 		for (i = start, current = get_node_at_index(*list, start);
-		     i < end && current != NULL &&
-			     current->prev != NULL; i++,
+		     i < end && current != NULL && current->prev != NULL; i++,
 			     current = current->next)
 		{
 			if (current->n < (current->prev)->n)
@@ -81,13 +79,10 @@ void cocktail_sort_list(listint_t **list)
 				swap(current->prev, current);
 				if (current->prev == NULL)
 					*list = current;
-				current = current->next;
+				current = current->next, flag = 1;
 				print_list(*list);
-				flag = 1;
 			}
 		}
-		if (flag == 0)
-			break;
 		for (i = end - start, current = get_node_at_index(*list, i);
 		     i > 0 && current != NULL && current->prev != NULL; i--,
 			     current = current->prev)
@@ -97,14 +92,12 @@ void cocktail_sort_list(listint_t **list)
 				swap(current->prev, current);
 				if (current->prev == NULL)
 					*list = current;
-				current = current->next;
+				current = current->next, flag = 1;
 				print_list(*list);
-				flag = 1;
 			}
 		}
 		if (flag == 0)
 			break;
-		flag = 0;
-		end--, start++;
+		flag = 0, end--, start++;
 	}
 }
