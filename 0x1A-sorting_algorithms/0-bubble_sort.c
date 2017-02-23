@@ -30,6 +30,6 @@ void bubble_sort(int *array, size_t size)
 		}
 		if (flag == 0)
 			break;
-		flag = 1;
+		flag = 0;
 	}
 }
