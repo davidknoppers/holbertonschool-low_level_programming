@@ -19,12 +19,10 @@ int hoare_partition(int *array, int left, int right, size_t size)
 	{
 		do {
 			i++;
-		}
-		while (array[i] < pivot);
+		} while (array[i] < pivot);
 		do {
 			j--;
-		}
-		while (array[j] > pivot);
+		} while (array[j] > pivot);
 		if (i < j)
 		{
 			temp = array[i];
@@ -67,6 +65,7 @@ void qs_helper(int *array, int left, int right, size_t size)
 
 void quick_sort(int *array, size_t size)
 {
-	if (size > 1)
-		qs_helper(array, 0, (int) size - 1, size);
+	if (!array || size <= 1)
+		return;
+	qs_helper(array, 0, (int) size - 1, size);
 }
