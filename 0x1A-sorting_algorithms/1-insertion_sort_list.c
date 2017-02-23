@@ -66,6 +66,8 @@ void insertion_sort_list(listint_t **list)
 	size_t length, i, j;
 	listint_t *temp1;
 
+	if (!list || !(*list))
+		return;
 	length = listint_len(*list);
 	if (length <= 1)
 		return;
