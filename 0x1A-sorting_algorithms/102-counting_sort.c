@@ -1,5 +1,4 @@
 #include "sort.h"
-#include <stdio.h>
 /**
  * get_max - subroutine to get the maximum int in an array
  * the max is used to determine the size of the array to malloc
@@ -29,7 +28,7 @@ int get_max(int *array, size_t size)
 void counting_sort(int *array, size_t size)
 {
 	int *array_of_counts;
-	int max, i;
+	int max, i, current;
 	size_t j;
 
 	if (!array || size < 2)
@@ -48,19 +47,23 @@ void counting_sort(int *array, size_t size)
 		array_of_counts[i] += array_of_counts[i - 1];
 	}
 	print_array(array_of_counts, max);
-	i = j = 0;
+	i = j = current = 0;
 	while (j <= size)
 	{
 		while (array_of_counts[i] > 0)
 		{
-			array[j] = i;
-			array_of_counts[i]--;
-			j++;
+			while (array_of_counts[i] > current)
+			{
+				array[j] = i;
+				current++, j++;
+				if (j > size)
+					break;
+			}
 			if (j > size)
 				break;
+			i++;
 		}
 		i++;
 	}
-	print_array(array, size);
 	free(array_of_counts);
 }
