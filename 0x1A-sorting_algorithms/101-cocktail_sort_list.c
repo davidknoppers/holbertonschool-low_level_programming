@@ -17,23 +17,6 @@ void swap(listint_t *left, listint_t *right)
 	right->next = left;
 }
 /**
- * listint_len - subroutine to get dll length
- * @h: ptr to head of dll
- * Return: length as an int
- */
-int listint_len(const listint_t *h)
-{
-	int i;
-
-	i = 0;
-	while (h != NULL)
-	{
-		h = h->next;
-		i++;
-	}
-	return (i);
-}
-/**
  * cocktail_sort_list - sorts an array using bubble sort, but shakin both ways
  * @list: pointer to head of list
  * Iterates through the entire array, then through the array -1, then -2, etc
