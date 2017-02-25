@@ -1,25 +1,5 @@
 #include "sort.h"
 /**
- * get_node_at_index - gets node at the index, if it exists
- * @head: head of dll
- * @index: index of desired node
- * Return: node at index
- */
-listint_t *get_node_at_index(listint_t *head, size_t index)
-{
-	size_t i;
-
-	if (head == NULL)
-		return (NULL);
-	for (i = 0; i < index && head != NULL; i++)
-	{
-		head = head->next;
-	}
-	if (i != index)
-		return (NULL);
-	return (head);
-}
-/**
  * swap - subroutine to exchange two dll nodes
  * @left: left node
  * @right: right node
@@ -61,43 +41,41 @@ int listint_len(const listint_t *h)
  */
 void cocktail_sort_list(listint_t **list)
 {
-	int i, end, start, flag;
+	int flag;
 	listint_t *current;
 
-	end = listint_len(*list);
-	if (end <= 1)
+	if (!list || !*list || (*list)->next == NULL)
 		return;
-	flag = 0, start = 1, current = get_node_at_index(*list, end - 1);
-	while (end > 0)
+
+	flag = 1, current = *list;
+	while (flag)
 	{
-		for (i = start, current = get_node_at_index(*list, start);
-		     i < end && current != NULL && current->prev != NULL; i++,
-			     current = current->next)
+		flag = 0;
+		while (current->next)
+		{
+			if (current->n > (current->next)->n)
+			{
+				swap(current, current->next);
+				if ((current->prev)->prev == NULL)
+					*list = current;
+				print_list(*list);
+				++flag;
+			}
+				else
+					current = current->next;
+		}
+		while (current->prev)
 		{
 			if (current->n < (current->prev)->n)
 			{
 				swap(current->prev, current);
 				if (current->prev == NULL)
 					*list = current;
-				current = current->next, flag = 1;
 				print_list(*list);
+					++flag;
 			}
+			else
+				current = current->prev;
 		}
-		for (i = end - start, current = get_node_at_index(*list, i);
-		     i > 0 && current != NULL && current->prev != NULL; i--,
-			     current = current->prev)
-		{
-			if (current->n < (current->prev)->n)
-			{
-				swap(current->prev, current);
-				if (current->prev == NULL)
-					*list = current;
-				current = current->next, flag = 1;
-				print_list(*list);
-			}
-		}
-		if (flag == 0)
-			break;
-		flag = 0, end--, start++;
 	}
 }
