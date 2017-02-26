@@ -1,2 +1,2 @@
-all:
-	gcc -Wall -Werror -Wextra -pedantic main.c holberton.c -o holberton
+all: main.c m.h holberton.c
+	gcc -Wall -Werror -Wextra -pedantic holberton.c main.c -o holberton
