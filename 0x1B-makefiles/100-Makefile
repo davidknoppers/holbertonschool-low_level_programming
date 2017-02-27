@@ -8,18 +8,21 @@ OBJ = $(SRC:.c=.o)
 
 NAME = holberton
 
-RM = rm
+#no rm?
+#RM = rm
 
-all: m.h $(OBJ)
-	$(CC) $(SRC) -o $(NAME)
+all: $(SRC) $(NAME)
 
-.PHONY: clean oclean fclean all re
+$(NAME): m.h $(OBJ)
+	$(CC) $(OBJ) -o $@
+
+.PHONY: clean oclean fclean all re $(NAME)
 
 clean:
-	-$(RM) -f *~ $(NAME)
+	$(RM) *~ $(NAME)
 
 oclean:
-	-$(RM) -f $(OBJ)
+	$(RM) $(OBJ)
 
 fclean: clean oclean
 
