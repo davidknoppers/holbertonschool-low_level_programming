@@ -7,13 +7,15 @@
  */
 void set_parent(bst_t *node, bst_t *swap)
 {
-		if (node->parent)
-		{
-			if ((node->parent)->left == node)
-				(node->parent)->left = swap;
-			else
-				(node->parent)->right = swap;
-		}
+	if (!node)
+		return;
+	if (node->parent)
+	{
+		if ((node->parent)->left == node)
+			(node->parent)->left = swap;
+		else
+			(node->parent)->right = swap;
+	}
 }
 
 /**
@@ -24,18 +26,13 @@ void set_parent(bst_t *node, bst_t *swap)
 bst_t *delete_min(bst_t *tree)
 {
 
-	printf("enter delete_min\n");
 	if (!tree)
 		return (NULL);
 	while (tree->left)
 		tree = tree->left;
 	if (tree->right)
-	{
 		(tree->right)->parent = tree->parent;
-		if (tree->parent)
-			(tree->parent)->left = tree->right;
-	}
-	else
+	if (tree->parent)
 	{
 		if ((tree->parent)->left == tree)
 			(tree->parent)->left = NULL;
@@ -132,21 +129,18 @@ avl_t *re2_balance(avl_t *tree)
 avl_t *avl_remove(avl_t *root, int value)
 {
 	avl_t *remove, *tmp;
-	int count;
 
 	remove = simple_remove(root, value);
 	if (!remove)
 		return (root);
 	tmp = remove->parent;
 	free(remove);
-	count = 0;
 	if (tmp)
 	{
-		while (tmp->parent && count < 8)
+		while (tmp->parent)
 		{
 			tmp = re2_balance(tmp);
 			tmp = tmp->parent;
-			++count;
 		}
 /* at this point tmp is pointing to the root */
 		root = re2_balance(tmp);
