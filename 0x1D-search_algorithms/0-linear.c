@@ -1,5 +1,4 @@
 #include "search_algos.h"
-#include <stdio.h>
 /**
  * linear_search - basic loop through array to find an int
  * @array: ptr to first element in arr of ints
