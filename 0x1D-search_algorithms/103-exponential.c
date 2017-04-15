@@ -45,22 +45,23 @@ int binary_search_recursive(int *array, size_t lower, size_t upper, int value)
  */
 int exponential_search(int *array, size_t size, int value)
 {
-	size_t test, low, high;
+	size_t exponent, low, high;
 
-	if (!array || size <= 0)
+	if (!array || size < 1)
 		return (-1);
 
-	test = 1;
-	while (test < size && array[test] < value)
+	exponent = 1;
+	while (exponent < size && array[exponent] < value)
 	{
-		printf("Value checked array[%lu] = [%d]\n", test, array[test]);
-		test *= 2;
+		printf("Value checked array[%lu] = [%d]\n", exponent,
+		       array[exponent]);
+		exponent *= 2;
 	}
-	if (test < size)
-		printf("Value checked array[%lu] = [%d]\n", test, array[test]);
-	low = test / 2;
-	high = MIN(test, size - 1);
+	if (exponent < size)
+		printf("Value checked array[%lu] = [%d]\n", exponent,
+		       array[exponent]);
+	low = exponent / 2;
+	high = MIN(exponent, size - 1);
 	printf("Value found between indexes [%lu] and [%lu]\n", low, high);
-	return (binary_search_recursive
-		(array, test / 2, MIN(test, size - 1), value));
+	return (binary_search_recursive(array, low, high, value));
 }
