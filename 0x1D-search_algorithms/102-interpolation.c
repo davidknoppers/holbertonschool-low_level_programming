@@ -29,7 +29,7 @@ int interpolation_search(int *array, size_t size, int value)
 		printf("Value checked array[%lu] = [%d]\n",
 		       probe, array[probe]);
 		if (array[probe] < value)
-			low = probe;
+			low = probe + 1;
 		else if (array[probe] > value)
 			high = probe;
 		else
