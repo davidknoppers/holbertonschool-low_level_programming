@@ -16,13 +16,12 @@ int binary_search_recursive(int *array, size_t lower, size_t upper, int value)
 
 	if (!array || lower > upper)
 		return (-1);
-
 	while (lower <= upper)
 	{
-		printf("Searching in array: ");
+		printf("Searching in array:");
 		for (i = lower; i < upper; i++)
-			printf("%d, ", array[i]);
-		printf("%d\n", array[upper]);
+			printf(" %d,", array[i]);
+		printf(" %d\n", array[upper]);
 		middle = (lower + upper) / 2;
 		if (array[middle] < value)
 			lower = middle + 1;
@@ -49,7 +48,6 @@ int exponential_search(int *array, size_t size, int value)
 
 	if (!array || size < 1)
 		return (-1);
-
 	exponent = 1;
 	while (exponent < size && array[exponent] < value)
 	{
