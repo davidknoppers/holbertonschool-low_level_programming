@@ -1,6 +1,5 @@
 #include "heap.h"
 
-
 /**
  * free_binary_tree - free a binary tree
  * @node: ptr to node of binary tree
@@ -20,7 +19,7 @@ void free_binary_tree(binary_tree_node_t *node, void (*free_data)(void *))
 
 /**
  * heap_delete - frees a heap struct
- * @heap: ptr to heap
+ * @heap: ptr to root of heap
  * @free_data: function to state if the data must be freed (NULL means no)
  */
 void heap_delete(heap_t *heap, void (*free_data)(void *))
