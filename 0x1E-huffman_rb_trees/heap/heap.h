@@ -33,6 +33,18 @@ typedef struct heap_s
 	int (*data_cmp)(void *, void *);
 	binary_tree_node_t *root;
 } heap_t;
+
+/**
+ * struct queue_s - simple queue
+ * @node: binary tree node
+ * @next: pointer to next queue element
+ */
+typedef struct queue_s
+{
+	binary_tree_node_t *node;
+	struct queue_s *next;
+} queue_t;
+
 /* problem 0, file heap_create */
 heap_t *heap_create(int (*data_cmp)(void *, void *));
 /* problem 1, file binary_tree_node.c */
