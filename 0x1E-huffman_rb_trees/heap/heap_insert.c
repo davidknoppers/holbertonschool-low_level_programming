@@ -2,9 +2,9 @@
 
 /**
  * swap_node_values - swaps values of two nodes
- * @new_node: most recently added node
- * @parent: parent node
- * Return: 0 for success
+ * @new_node: the new node
+ * @parent: the parent node
+ * Return: 0 on success
  */
 int swap_node_values(binary_tree_node_t *new_node, binary_tree_node_t *parent)
 {
@@ -20,7 +20,7 @@ int swap_node_values(binary_tree_node_t *new_node, binary_tree_node_t *parent)
 /**
  * get_parent_node - get the parent node of the node
  * @root: root of binary tree
- * @height: height of tree
+ * @height: height of binary tree
  * Return: parent node
  */
 binary_tree_node_t *get_parent_node(binary_tree_node_t *root, int *height)
