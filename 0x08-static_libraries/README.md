@@ -1,1 +1,1 @@
-Practice with static libraries
+In this exercise, we created our first static library in C
